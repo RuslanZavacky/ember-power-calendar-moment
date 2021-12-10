@@ -1,5 +1,7 @@
 'use strict';
 
+const cacheKeyForTree = require('calculate-cache-key-for-tree');
+
 module.exports = {
   name: require('./package').name,
 
@@ -26,5 +28,9 @@ module.exports = {
         registry: this.registry
       }
     );
-  }
+  },
+
+  cacheKeyForTree(treeType) {
+    return cacheKeyForTree(treeType, this);
+  },
 };
